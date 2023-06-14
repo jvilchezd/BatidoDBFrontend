@@ -156,3 +156,69 @@ function mostrarBatidoAleatorio(data) {
    imagen.src = data.fotoSrc;
    contenedor.appendChild(imagen);
 }
+
+
+
+
+/* Funcionalidad 3. Mostrar todos los batidos */
+document.getElementById('todos__boton').addEventListener('click', mostrarTodos);
+
+function mostrarTodos() {
+// Actividad 93. Funcionalidad III
+fetch('https://localhost:7275/api/batido/todos')
+
+.then((response) => response.json())
+// .then((data) => console.log(data));
+.then((data) => mostrarTodosBatidos(data));
+}
+
+function mostrarTodosBatidos(data) {
+   console.log(data);
+   //let contenedor = document.getElementById('container-main');
+   let contenedor = document.getElementById('container-todos');
+
+    /* limpia el div de elementos al mostrar un resultado de otra busqueda de datos */
+    //document.getElementById('container').innerHTML = '';
+    //document.getElementById('container-main').innerHTML = '';
+    document.getElementById('container-todos').innerHTML = '';
+    document.getElementById('texto').innerHTML = 'Todos los batidos';
+
+   for(let i = 0; i < data.length; i++) {
+        let batidoContainer = document.createElement('div');
+        batidoContainer.className = 'batido';
+
+            let nombre = document.createElement('h2');
+            nombre.innerHTML = data[i].nombre;
+            batidoContainer.appendChild(nombre);
+            
+            let ingredientes = document.createElement('p');
+            ingredientesJuntos = data[i].ingredientes;
+            let arrayIngredientes = ingredientesJuntos.split(',');
+            console.log(arrayIngredientes);
+            // Cabecera ingredientes
+            ingredientes.innerHTML = '<h4 id="recetas-headers">Ingredientes: </h4>';
+            for(let j = 0; j < arrayIngredientes.length; j++) {
+                // Añadido al contenido del HTML con insertAdjacentHTML https://developer.mozilla.org/es/docs/Web/API/Element/insertAdjacentHTML
+                ingredientes.insertAdjacentHTML('beforeend', arrayIngredientes[j] + '<br>');
+            }
+            batidoContainer.appendChild(ingredientes);
+
+            let preparacionH4 = document.createElement('h4');
+            preparacionH4.innerHTML = 'Preparación: ';
+            contenedor.appendChild(preparacionH4);
+
+            let preparacion = document.createElement('p');
+            preparacion.innerHTML = data[i].preparacion;
+            batidoContainer.appendChild(preparacion);
+
+            let batidoId = document.createElement('p');
+            batidoId.innerHTML = 'Id: ' + data[i].id;
+            batidoContainer.appendChild(batidoId);
+        
+            let imagen = document.createElement('img');
+            imagen.src = data[i].fotoSrc;
+            batidoContainer.appendChild(imagen);
+
+        contenedor.appendChild(batidoContainer);
+   }
+}

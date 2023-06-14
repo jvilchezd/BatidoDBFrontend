@@ -79,7 +79,8 @@ input {
 }
 
 #todos__boton {
-    width: 80px;
+    /*width: 80px;*/
+    width: 200px;
     margin: 5px 0 5px 10px;
     padding: 10px;
     border-radius: 4px;
