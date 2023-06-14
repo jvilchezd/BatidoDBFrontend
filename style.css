@@ -119,6 +119,24 @@ input {
 }
 */
 
+/* Boton aleatorio */
+#aleatorio__boton {
+    width: 200px;
+    margin: 5px 0 5px 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    line-height: 150%;
+    color: ffffff;
+}
+#aleatorio__boton:hover {
+    background-color: rgb(178, 60, 60);
+    color: f4511e;
+}
+#aleatorio__boton {
+    width: 125px;
+}
 
 /* Botón Añadir animado https://www.w3schools.com/howto/howto_css_animate_buttons.asp */
 .crear__boton {

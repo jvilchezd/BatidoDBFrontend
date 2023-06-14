@@ -39,12 +39,12 @@ async function buscarBatido() {
 function mostrarBatido(data) {
     console.log(data);
     //let contenedor = document.getElementById('container');
-    let contenedor = document.getElementById('container-main');
+    let contenedor = document.getElementById('container-todos');
     
 
     /* limpia el div de elementos al mostrar un resultado de otra busqueda de datos */
     //document.getElementById('container').innerHTML = '';
-    document.getElementById('container-main').innerHTML = '';
+    document.getElementById('container-todos').innerHTML = '';
     document.getElementById('texto').innerHTML = '';
 
     /* Si no existe el batido en la base de datos indicara que no se ha encontrado */
@@ -81,4 +81,78 @@ function mostrarBatido(data) {
     } else {
         document.getElementById('texto').innerHTML = '<span style="color:red">Batido no encontrado</span>';
     }
+}
+
+
+document.getElementById('aleatorio__boton').addEventListener('click', buscarBatidoAleatorio);
+
+// Funcionalidad II
+async function buscarBatidoAleatorio() {
+       
+    //let resultado = await fetch('https://batidosdb.000webhostapp.com/api/cocktail/aleatorio',
+    let resultado = await fetch('https://localhost:7275/api/batido/aleatorio',
+    {
+        method: 'GET',
+        headers:
+        {
+            'Accept': 'application/json'
+        }
+    });
+ //.then((response) => response.json())
+ //.then((data) => mostrarBatido(data));
+ /* Sustituyo por condicional
+ let data = await resultado.json();
+ mostrarBatido(data);
+} */
+    /* Ante un error 404 por parte del servidor */
+    if (resultado.status != 404) {
+        let data = await resultado.json();
+        mostrarBatidoAleatorio(data);
+        } else {
+            console.log('Batido no encontrado');
+            document.getElementById('texto').innerHTML = '<span style="color:red">Batido no encontrado</span>';
+            //alert('Error 404: recurso no encontrado');
+    }
+}
+
+
+function mostrarBatidoAleatorio(data) {
+   console.log(data);
+    //let contenedor = document.getElementById('container');
+    let contenedor = document.getElementById('container-todos');
+    
+
+    /* limpia el div de elementos al mostrar un resultado de otra busqueda de datos */
+    //document.getElementById('container').innerHTML = '';
+    document.getElementById('container-todos').innerHTML = '';
+    document.getElementById('texto').innerHTML = '';
+
+   let nombre = document.createElement('h1');
+   nombre.innerHTML = data.nombre;
+   contenedor.appendChild(nombre);
+
+   let ingredientes = document.createElement('p');
+   ingredientesJuntos = data.ingredientes;
+   let arrayIngredientes = ingredientesJuntos.split(',');
+   console.log(arrayIngredientes);
+   // Cabecera ingredientes
+   ingredientes.innerHTML = '<h4 id="recetas-headers">Ingredientes: </h4>';
+   for(let i = 0; i < arrayIngredientes.length; i++) {
+       // Añadido al contenido del HTML con insertAdjacentHTML https://developer.mozilla.org/es/docs/Web/API/Element/insertAdjacentHTML
+       ingredientes.insertAdjacentHTML('beforeend', arrayIngredientes[i] + '<br>');
+   }
+   //ingredientes.innerHTML = data.ingredientes;
+   contenedor.appendChild(ingredientes);
+
+   let preparacionH4 = document.createElement('h4');
+   preparacionH4.innerHTML = 'Preparación: ';
+   contenedor.appendChild(preparacionH4);
+
+   let preparacion = document.createElement('p');
+   preparacion.innerHTML = data.preparacion;
+   contenedor.appendChild(preparacion);
+
+   let imagen = document.createElement('img');
+   imagen.src = data.fotoSrc;
+   contenedor.appendChild(imagen);
 }
