@@ -1,0 +1,230 @@
+/* Top menu horizontal */
+#menu {
+    text-align: center;
+    padding: 25px;
+    color:rgb(201, 200, 211);
+    font-size: large;
+}
+#menu a {
+    color: white;
+}
+
+#container-todos {
+    width: 700px;
+    margin: 20px auto;
+}
+
+/* formulario */
+.container {
+    width: 650px;
+    margin: 20px auto;
+    padding: 17px;
+    background-color: aquamarine;
+    border-radius: 5px;
+    background-color:rgb(233, 241, 246);
+    /* que todo el contenido entre dentro del container */
+    overflow: hidden;
+}
+
+input {
+    width: 410px;
+    height: 28px;
+    padding: 5px;
+    margin: 5px;
+}
+#nombre__input {
+    float: left;
+}
+#ingredientes__input {
+    float: left;
+}
+#preparacion__input {
+    float: left;
+}
+#fotoSrc__input {
+    float: left;
+}
+
+#id-edit__input {
+    width: 96%;
+}
+.edit__input {
+    float: left;
+}
+
+
+/* Botones */
+
+#texto {
+    padding: 5px;
+    display: block;
+}
+
+#borrar__boton {
+    width: 80px;
+    margin: 5px 0 5px 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    line-height: 150%;
+    color: ffffff;
+}
+#borrar__boton:hover {
+    background-color: rgb(178, 60, 60);
+    color: f4511e;
+}
+#borrar__input {
+    width: 67px;
+}
+
+#todos__boton {
+    width: 80px;
+    margin: 5px 0 5px 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    line-height: 150%;
+    color: ffffff;
+}
+#todos__boton:hover {
+    background-color: rgb(178, 60, 60);
+    color: f4511e;
+}
+
+
+#buscador__boton {
+    width: 200px;
+    margin: 5px 0 5px 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    line-height: 150%;
+    color: ffffff;
+}
+#buscador__boton:hover {
+    background-color: rgb(178, 60, 60);
+    color: f4511e;
+}
+#buscador__input {
+    width: 125px;
+}
+/*
+#buscador__boton:enabled {
+    border-radius: 10px;
+    background-color: firebrick;
+    color: white;
+}
+*/
+
+
+/* Botón Añadir animado https://www.w3schools.com/howto/howto_css_animate_buttons.asp */
+.crear__boton {
+    width: 200px;
+    /*height: 146px;*/
+    height: 198px;
+    margin: 5px 0 5px 10px;
+    font-size: 28px;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #f4511e;
+    text-align: center;
+    border: none;
+    line-height: 150%;
+    color: ffffff ;
+
+    transition: all 0.5s;
+    cursor: pointer;
+}
+/* span en boton */
+.crear__boton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+.crear__boton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.crear__boton:hover span {
+    padding-right: 25px;
+}
+  
+.crear__boton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+#container-apis {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* Cuadro con api en pagina de detalle de api */
+#container-api {
+    width: 400px;
+    margin: 0 auto;
+    color:rgb(188, 186, 202);
+    border-radius: 10px;
+    background-color: brown;
+    padding: 20px;
+    line-height: 150%;
+    text-align: center;
+}
+
+
+/* Fondo color degradado */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%; /* fondo 100% de la ventana del navegador y no del contenido */
+    background-color: rgb(112, 31, 25);
+    background: linear-gradient(
+        217deg,
+        rgba(143, 1, 44, 0.8),
+        rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(251, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(255, 187, 0, 0.8), rgba(255, 0, 0, 0.258) 70.71%);
+    background-attachment: fixed; /* fondo fijo */
+}
+
+/* body azul
+body {
+    height: 100%; 
+    /*background-color: midnightblue;
+    background: linear-gradient(
+        217deg,
+        rgba(8, 1, 143, 0.8),
+        rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 4, 255, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 21, 255, 0.8), rgba(255, 0, 0, 0.258) 70.71%);
+    background-attachment: fixed; 
+}
+*/
+
+/*
+body {
+    height: 100%;
+    background-color: midnightblue;
+    background: linear-gradient(
+        217deg,
+        rgba(143, 1, 6, 0.8),
+        rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(255, 13, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(255, 0, 0, 0.8), rgba(0, 0, 255, 0) 70.71%);
+}
+*/
+
+
+span {
+    color:white;
+}
