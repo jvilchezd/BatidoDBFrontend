@@ -11,7 +11,7 @@ async function buscarBatido() {
     //let nombre = document.getElementById('nombre').value;
     let nombre = document.getElementById('buscador__input').value;
     
-    let resultado = await fetch(`https://batidosdb.000webhostapp.com/api/batido/buscar/${nombre}`,
+    let resultado = await fetch(`https://batidoAPI.somee.com/api/batido/buscar/${nombre}`,
     {
         method: 'GET',
         headers:
@@ -90,7 +90,7 @@ document.getElementById('aleatorio__boton').addEventListener('click', buscarBati
 async function buscarBatidoAleatorio() {
        
     //let resultado = await fetch('https://batidosdb.000webhostapp.com/api/cocktail/aleatorio',
-    let resultado = await fetch('https://localhost:7275/api/batido/aleatorio',
+    let resultado = await fetch('https://batidoAPI.somee.com/api/batido/aleatorio',
     {
         method: 'GET',
         headers:
@@ -165,7 +165,7 @@ document.getElementById('todos__boton').addEventListener('click', mostrarTodos);
 
 function mostrarTodos() {
 // Actividad 93. Funcionalidad III
-fetch('https://localhost:7275/api/batido/todos')
+fetch('https://batidoAPI.somee.com/api/batido/todos')
 
 .then((response) => response.json())
 // .then((data) => console.log(data));
@@ -205,7 +205,7 @@ function mostrarTodosBatidos(data) {
 
             let preparacionH4 = document.createElement('h4');
             preparacionH4.innerHTML = 'Preparación: ';
-            contenedor.appendChild(preparacionH4);
+            batidoContainer.appendChild(preparacionH4);
 
             let preparacion = document.createElement('p');
             preparacion.innerHTML = data[i].preparacion;
